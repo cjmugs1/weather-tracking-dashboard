@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+:root{
+    --light-grey: #ebebeb;
+    --light-grey-tran: #ebebebaf;
+    --dark-grey: #1d1d1d;
+    --light-blue: #7fe8db;
+    --light-yellow: #f6e498;
+}
+
+/* GENERAL STYLING */
+body{
+    background-image: url(../images/solid-color-image.png);
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    font-family: 'Nunito Sans';
+    user-select: none;
+    transition: all 0.25s ease-in;
+}
+
+/* NAVBAR CUSTOM STYLING */
+.navbar{
+    width: 100%;
+    padding: 12px;
+    background-color: var(--light-grey);
+}
+
+.navbar-container{
+    padding: 0px;
+}
+
+.navbar a{
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--dark-grey)
+}
+
+.navbar-logo{
+    max-width: 75px;
+    max-height: 75px;
+    margin-right: 12px;
+}
+
+
+
+
+.popular-cities-search{
+    height: auto;
+    background-color: var(--light-grey-tran);
+}
+
+.popular-cities-search p{
+    margin: 0 12px;
+}
+
+.popular-cities-btn-container .popular-city-btn{
+    transition: background-color 0.3s ease-out;
+}
+
+.popular-cities-btn-container .popular-city-btn:hover{
+    background-color: var(--light-yellow);
+}
+
+
+.search-result-container{
+    margin-top: 12px;
+    background-color: var(--light-grey-tran);
+}
