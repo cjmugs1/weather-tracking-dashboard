@@ -7,19 +7,19 @@
     <link href="./assets/styles/resets.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="./assets/styles/style.css" rel="stylesheet">
-    <title>Tempra</title>
+    <title>Tempra Weather</title>
 </head>
 <body>
     <nav class="navbar sticky-top">
         <div class="container-fluid d-flex navbar-container">
-            <a class="navbar-brand d-flex align-items-center mx-auto" href="#" style="width: auto">
+            <a class="navbar-brand d-flex align-items-center" href="#" style="width: auto">
                 <img src="./assets/images/logo.png" alt="Logo" class="d-inline-block navbar-logo">
                 Tempra
             </a>
             <div class="mx-auto" style="width: auto">
                 <form class="d-flex" role="search">
-                    <input class="form-control" type="search" placeholder="Search City or ZipCode" aria-label="Search City">
-                    <button class="btn" type="submit">Search</button>
+                    <input class="form-control search-input" type="search" placeholder="Search City or ZipCode" aria-label="Search City">
+                    <button class="btn search-btn" type="submit">Search</button>
                 </form>
             </div>
         </div>
@@ -30,12 +30,20 @@
         <div class="btn-group popular-cities-btn-container"></div>
     </div>
 
+    <div class="search-city-container">
+        <img src="./assets/images/snowy-day-1-crop-blur.png" class="search-background"></img>  
+        <p class="searched-city">Atlanta</p> 
+    </div>
+
     <main>
-        <div class="search-result-container">
-            <p>City</p>
-            <p>Temperature | <span class="temperature"></span></p>
-            <p>Humidity | <span class="humidity"></span></p>
-            <p>Wind | <span class="wind"></span></p>
+        <div class="container-fluid d-flex justify-content-between search-result-container">
+            <p class="result"><span class="description result-text"></span></p>
+            <p class="result">current temp: <span class="temperature result-text"></span> °f</p>
+            <p class="result">wind speed: <span class="wind-speed result-text"></span> mph</p>
+            <p class="result">humidity: <span class="humidity result-text"></span> %</p>
+        </div>
+        <div class="container-fluid d-flex justify-content-between forecast-container">
+
         </div>
 
     </main>
