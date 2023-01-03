@@ -193,6 +193,25 @@ function createSearchResults(weatherSearchResults){
     $('.humidity').text(weatherSearchResults.current.humidity.toFixed(0));
 
     // 5-DAY FORECAST
+    let currentDay = dayjs().format('ddd[,] M[-]DD')
+    let next5Days = [currentDay]
+    for (let i=1; i <5; i++){
+        next5Days.push(dayjs().add(i, 'd').format('ddd[,] M[-]DD'))
+    }
+
+    for (let i=0; i < 5; i++){
+        const forecastCardsContainer = $('.forecast-cards-container');
+
+        forecastCardsContainer.append(`
+        <div class="col">
+            <div class="current-date">
+                <p>${next5Days[i]}</p>
+            </div>
+            <div>
+                
+            </div>
+        </div>`)
+    }
 }
 
 
