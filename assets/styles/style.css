@@ -23,6 +23,8 @@ body{
     transition: all 0.25s ease-in;
 }
 
+
+
 /* NAVBAR CUSTOM STYLING */
 .navbar{
     width: 100%;
@@ -47,6 +49,9 @@ body{
     margin-right: 15px;
 }
 
+
+
+/* POPULAR CITIES SEARCH BAR */
 .popular-cities-search{
     height: auto;
     background-color: var(--light-grey-tran);
@@ -68,6 +73,7 @@ body{
 
 
 
+/* SEARCH CITY AND BACKGROUND WEATHER IMAGE */
 .search-city-container{
     position: relative;
     height: 250px;
@@ -85,17 +91,22 @@ body{
     z-index: 2;
 }
 
-.searched-city{
+.searched-city-container{
     position: absolute;
     bottom: 0px;
     left: 45px;
     font-size: 64px;
     color: var(--dark-grey);
     z-index: 3;
+    transition: opacity 0.2s ease-out;
+}
+
+.current-weather-description{
+    font-size: 32px;
 }
 
 
-
+/* SEARCH RESULTS (TEMP AND 5 D-AY FORECAST */
 .search-result-container{
     margin-top: 15px;
     padding: 0px 45px;

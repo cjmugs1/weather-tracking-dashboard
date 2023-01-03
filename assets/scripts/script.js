@@ -25,14 +25,8 @@ const geoApiCity = "http://api.openweathermap.org/geo/1.0/direct?q="
 const geoApiZip = "http://api.openweathermap.org/geo/1.0/zip?zip="
 
 
-
-// || DYNAMIC CREATION OF DOM ELEMENTS ON LOAD
-
-
-// CREATE POPULAR CITY SEARCH BUTTONS
-createPopularCitiesBtns = () => {
-    const popularCitiesBtnContainer = $('.popular-cities-btn-container')
-    const popularCities = [
+// POPULAR CITIES GLOBAL VARIABLE
+const popularCities = [
     {city: "Atlanta", stateCode: "GA"},
     {city: "Boston", stateCode: "MA"},
     {city: "Chicago", stateCode: "IL"},
@@ -43,7 +37,14 @@ createPopularCitiesBtns = () => {
     {city: "New York", stateCode: "NY"},
     {city: "Seattle", stateCode: "WA"},
     {city: "Washington D.C.", stateCode: "DC"},
-    ]
+]
+
+// || DYNAMIC CREATION OF DOM ELEMENTS ON LOAD
+
+
+// CREATE POPULAR CITY SEARCH BUTTONS
+createPopularCitiesBtns = () => {
+    const popularCitiesBtnContainer = $('.popular-cities-btn-container')
 
     popularCities.forEach((popularCity) => {
         let popularCitiesBtn = $('<button class="btn text-nowrap popular-city-btn" onclick="searchPopularCity(event)"></button>')
@@ -64,6 +65,11 @@ function fetchCoordinatesByPopularCity (cityName, stateCode) {
         .then((data) => data.json())
         .then(function (results) {
             console.log(results)
+            $('.searched-city-container').css('opacity', '0')
+            setTimeout(function(){
+                $('.searched-city').text(cityName + " | ")
+                $('.searched-city-container').css('opacity', '1')
+            }, 400)
             let searchCoordinates = [results[0].lat, results[0].lon];
             return searchCoordinates;
         });
@@ -74,7 +80,11 @@ function fetchCoordinatesByCity (cityName) {
         .then((data) => data.json())
         .then(function (results) {
             console.log(results)
-            $('.searched-city').text(results[0].name)
+            $('.searched-city-container').css('opacity', '0')
+            setTimeout(function(){
+                $('.searched-city').text(results[0].name + " | ")
+                $('.searched-city-container').css('opacity', '1')
+            }, 400)
             let searchCoordinates = [results[0].lat, results[0].lon];
             return searchCoordinates;
         });
@@ -85,8 +95,12 @@ function fetchCoordinatesByZip (zipcode){
     return fetch(`${geoApiZip}${zipcode},${countryCode}${apiKey}`)
         .then((data) => data.json())
         .then(function (results) {
-            $('.searched-city').text(results.name)
             console.log(results)
+            $('.searched-city-container').css('opacity', '0')
+            setTimeout(function(){
+                $('.searched-city').text(results.name + " | ")
+                $('.searched-city-container').css('opacity', '1')
+            }, 400)
             let searchCoordinates = [results.lat, results.lon];
             return searchCoordinates;
         });
@@ -103,7 +117,14 @@ function searchWeatherByCoordinates (searchCoordinates) {
         })
 }
 
-
+// ON PAGE LOAD, SEARCH A RANDOM POPULAR CITY
+function searchCityOnLoad(){
+    var randomCity = popularCities[Math.floor(Math.random() * popularCities.length)]
+    fetchCoordinatesByPopularCity(randomCity.city, randomCity.stateCode)
+        .then((searchCoordinates) => searchWeatherByCoordinates(searchCoordinates)
+        .then((weatherSearchResults) => createSearchResults(weatherSearchResults)
+        ));
+} searchCityOnLoad()
 
 //  || MAIN HANDLE ON CLICK FUNCTIONS (ON CLICK OF POPULAR CITIES, or BY SEARCH BAR)
 
@@ -113,8 +134,6 @@ function searchPopularCity(event) {
     event.preventDefault();
     let selectedPopularCity = event.target
     let cityName = $(selectedPopularCity).text()
-    // Set name of searched city
-    $('.searched-city').text(cityName)
     let stateCode = $(selectedPopularCity).attr('data-state-code')
     fetchCoordinatesByPopularCity(cityName, stateCode)
         .then((searchCoordinates) => searchWeatherByCoordinates(searchCoordinates)
@@ -167,10 +186,15 @@ $('.search-btn').click(function(event){
 
 // || MAIN DISPLAY WEATHER DATA TO THE SCREEN
 function createSearchResults(weatherSearchResults){
-    $('.description').text(weatherSearchResults.current.weather[0].description)
-    $('.temperature').text(weatherSearchResults.current.temp)
-    $('.wind-speed').text(weatherSearchResults.current.wind_speed)
-    $('.humidity').text(weatherSearchResults.current.humidity);
+    // HIGHLIGHTED RESULTS
+    setTimeout(function() {
+        $('.current-weather-description').text(weatherSearchResults.current.weather[0].description)
+    },400)
+    $('.temperature').text(weatherSearchResults.current.temp.toFixed(0))
+    $('.wind-speed').text(weatherSearchResults.current.wind_speed.toFixed(1))
+    $('.humidity').text(weatherSearchResults.current.humidity.toFixed(0));
+
+    // 5-DAY FORECAST
 }
 
 

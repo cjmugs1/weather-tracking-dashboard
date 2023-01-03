@@ -32,24 +32,23 @@
 
     <div class="search-city-container">
         <img src="./assets/images/snowy-day-1-crop-blur.png" class="search-background"></img>  
-        <p class="searched-city">Atlanta</p> 
+        <p class="searched-city-container"><span class="searched-city"></span><span class="current-weather-description"></span></p>
+        <div class="container-fluid d-flex justify-content-start search-result-container">
+            <p class="result"><span class="temperature result-text"></span> °f</p>
+            <p class="result">wind: <span class="wind-speed result-text"></span> mph</p>
+            <p class="result">humidity: <span class="humidity result-text"></span> %</p>
+        </div> 
     </div>
 
     <main>
-        <div class="container-fluid d-flex justify-content-between search-result-container">
-            <p class="result"><span class="description result-text"></span></p>
-            <p class="result">current temp: <span class="temperature result-text"></span> °f</p>
-            <p class="result">wind speed: <span class="wind-speed result-text"></span> mph</p>
-            <p class="result">humidity: <span class="humidity result-text"></span> %</p>
-        </div>
+
         <div class="container-fluid d-flex justify-content-between forecast-container">
-
         </div>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="assets/scripts/script.js"></script>
 
 </body>
