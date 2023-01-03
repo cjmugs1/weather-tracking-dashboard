@@ -65,10 +65,10 @@ function fetchCoordinatesByPopularCity (cityName, stateCode) {
         .then((data) => data.json())
         .then(function (results) {
             console.log(results)
-            $('.searched-city-container').css('opacity', '0')
+            $('.searched-city-data').css('opacity', '0')
             setTimeout(function(){
                 $('.searched-city').text(cityName + " | ")
-                $('.searched-city-container').css('opacity', '1')
+                $('.searched-city-data').css('opacity', '1')
             }, 400)
             let searchCoordinates = [results[0].lat, results[0].lon];
             return searchCoordinates;
@@ -80,10 +80,10 @@ function fetchCoordinatesByCity (cityName) {
         .then((data) => data.json())
         .then(function (results) {
             console.log(results)
-            $('.searched-city-container').css('opacity', '0')
+            $('.searched-city-data').css('opacity', '0')
             setTimeout(function(){
                 $('.searched-city').text(results[0].name + " | ")
-                $('.searched-city-container').css('opacity', '1')
+                $('.searched-city-data').css('opacity', '1')
             }, 400)
             let searchCoordinates = [results[0].lat, results[0].lon];
             return searchCoordinates;
@@ -96,10 +96,10 @@ function fetchCoordinatesByZip (zipcode){
         .then((data) => data.json())
         .then(function (results) {
             console.log(results)
-            $('.searched-city-container').css('opacity', '0')
+            $('.searched-city-data').css('opacity', '0')
             setTimeout(function(){
                 $('.searched-city').text(results.name + " | ")
-                $('.searched-city-container').css('opacity', '1')
+                $('.searched-city-data').css('opacity', '1')
             }, 400)
             let searchCoordinates = [results.lat, results.lon];
             return searchCoordinates;
@@ -187,9 +187,7 @@ $('.search-btn').click(function(event){
 // || MAIN DISPLAY WEATHER DATA TO THE SCREEN
 function createSearchResults(weatherSearchResults){
     // HIGHLIGHTED RESULTS
-    setTimeout(function() {
-        $('.current-weather-description').text(weatherSearchResults.current.weather[0].description)
-    },400)
+    $('.current-weather-description').text(weatherSearchResults.current.weather[0].description)
     $('.temperature').text(weatherSearchResults.current.temp.toFixed(0))
     $('.wind-speed').text(weatherSearchResults.current.wind_speed.toFixed(1))
     $('.humidity').text(weatherSearchResults.current.humidity.toFixed(0));

@@ -16,7 +16,7 @@
                 <img src="./assets/images/logo.png" alt="Logo" class="d-inline-block navbar-logo">
                 Tempra
             </a>
-            <div class="mx-auto" style="width: auto">
+            <div class="" style="width: auto">
                 <form class="d-flex" role="search">
                     <input class="form-control search-input" type="search" placeholder="Search City or ZipCode" aria-label="Search City">
                     <button class="btn search-btn" type="submit">Search</button>
@@ -30,13 +30,19 @@
         <div class="btn-group popular-cities-btn-container"></div>
     </div>
 
-    <div class="search-city-container">
-        <img src="./assets/images/snowy-day-1-crop-blur.png" class="search-background"></img>  
-        <p class="searched-city-container"><span class="searched-city"></span><span class="current-weather-description"></span></p>
-        <div class="container-fluid d-flex justify-content-start search-result-container">
-            <p class="result"><span class="temperature result-text"></span> °f</p>
-            <p class="result">wind: <span class="wind-speed result-text"></span> mph</p>
-            <p class="result">humidity: <span class="humidity result-text"></span> %</p>
+    <div class="container-fluid searched-city-container">
+        <img src="./assets/images/snowy-day-1-crop-blur.png" class="current-weather-background"></img>
+
+        <div class="searched-city-data-container">
+            <div class="searched-city-data">
+                <p class="searched-city-text"><span class="searched-city"></span><span class="current-weather-description"></span></p>
+                
+                <div class="current-weather-result-container">
+                    <p class="result border-result result-1"><span class="temperature result-text"></span> °f</p>
+                    <p class="result border-result">wind: <span class="wind-speed result-text"></span> mph</p>
+                    <p class="result">humidity: <span class="humidity result-text"></span> %</p>
+                </div>
+            </div> 
         </div> 
     </div>
 
