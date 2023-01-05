@@ -150,3 +150,7 @@ p {
 
 /* SEARCH RESULTS (TEMP AND 5-DAY FORECAST) */
 
+.forecast-main-container{
+    min-height: 600px;
+    padding: 0 45px;
+}

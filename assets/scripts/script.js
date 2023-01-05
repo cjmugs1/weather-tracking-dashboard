@@ -186,6 +186,12 @@ $('.search-btn').click(function(event){
 
 // || MAIN DISPLAY WEATHER DATA TO THE SCREEN
 function createSearchResults(weatherSearchResults){
+    // Clear previous results
+    if ($('.forecast-main-container').children().length > 1) {
+        $('.forecast-cards-container').remove();
+        $('.forecast-main-container').append('<div class="row align-items-start forecast-cards-container"></div>')
+    }
+
     // HIGHLIGHTED RESULTS
     $('.current-weather-description').text(weatherSearchResults.current.weather[0].description)
     $('.temperature').text(weatherSearchResults.current.temp.toFixed(0))
@@ -200,15 +206,16 @@ function createSearchResults(weatherSearchResults){
     }
 
     for (let i=0; i < 5; i++){
-        const forecastCardsContainer = $('.forecast-cards-container');
-
-        forecastCardsContainer.append(`
+        $('.forecast-cards-container').append(`
         <div class="col">
             <div class="current-date">
                 <p>${next5Days[i]}</p>
             </div>
+            <p class="5-day-description"><span>${weatherSearchResults.daily[i].weather[0].description}</span> expected</p>
             <div>
-                
+            <p class="5-day-result"><span class="5-day-result-text">${weatherSearchResults.daily[i].temp.day.toFixed(0)}</span> °f</p>
+            <p class="5-day-result">wind: <span class="5-day-result-text">${weatherSearchResults.daily[i].wind_speed.toFixed(0)}</span> mph</p>
+            <p class="5-day-result">humidity: <span class="5-day-result-text">${weatherSearchResults.daily[i].humidity.toFixed(0)}</span> %</p>
             </div>
         </div>`)
     }
