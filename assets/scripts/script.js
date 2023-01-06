@@ -18,11 +18,11 @@ const weatherApi = "https://api.openweathermap.org/data/3.0/onecall?"
 
 // BY CITY NAME
 // https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
-const geoApiCity = "http://api.openweathermap.org/geo/1.0/direct?q="
+const geoApiCity = "https://api.openweathermap.org/geo/1.0/direct?q="
 
 // BY ZIP CODE
 // https://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}
-const geoApiZip = "http://api.openweathermap.org/geo/1.0/zip?zip="
+const geoApiZip = "https://api.openweathermap.org/geo/1.0/zip?zip="
 
 
 // POPULAR CITIES GLOBAL VARIABLE
