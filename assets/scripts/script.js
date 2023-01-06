@@ -17,11 +17,11 @@ const weatherApi = "https://api.openweathermap.org/data/3.0/onecall?"
 
 
 // BY CITY NAME
-// http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+// https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 const geoApiCity = "http://api.openweathermap.org/geo/1.0/direct?q="
 
 // BY ZIP CODE
-// http://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}
+// https://api.openweathermap.org/geo/1.0/zip?zip={zip code},{country code}&appid={API key}
 const geoApiZip = "http://api.openweathermap.org/geo/1.0/zip?zip="
 
 
